@@ -43,14 +43,18 @@
     .main-section {
       flex: 1;
       display: flex;
+      flex-direction: row;
       padding: 1.5rem;
       overflow: hidden;
     }
 
     .hero {
-      width: 60%;
+      width: 65%;
       padding: 1rem;
       box-sizing: border-box;
+    }
+
+    .hero {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -61,20 +65,17 @@
     .hero img {
       max-width: 180px;
       height: auto;
-      margin: 0.5rem 0;
+      margin: 0.5rem;
     }
 
-    .hero h2 {
-      font-size: 1.5rem;
-      color: #333333;
-      margin: 1rem 0;
-      text-transform: uppercase;
+    .hero p {
+      font-size: 1rem;
+      color: #444;
+      max-width: 500px;
+      margin-top: 1rem;
     }
 
     .form-section {
-      width: 40%;
-      padding: 1rem;
-      box-sizing: border-box;
       background-color: #f9f9f9;
       border-radius: 8px;
       box-shadow: 0 6px 30px rgba(0,0,0,0.25);
@@ -82,21 +83,31 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      width: 35%;
     }
 
-    .form-section form {
+    .form-section .branding {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-section .branding img {
+      max-width: 140px;
+      display: block;
+      margin: 0 auto 0.5rem auto;
+    }
+
+    .form-section .branding h2 {
+      margin: 0;
+      font-size: 1.25rem;
+      color: #333;
+    }
+
+    form {
       width: 100%;
       max-width: 320px;
       display: flex;
       flex-direction: column;
-    }
-
-    .form-section p {
-      font-size: 1rem;
-      color: #444444;
-      max-width: 500px;
-      margin-bottom: 1.5rem;
-      text-align: center;
     }
 
     label {
@@ -144,13 +155,19 @@
   <div class="content-wrapper">
     <section class="main-section">
       <div class="hero">
-        <img src="urbiparking_propuesta1.png" alt="Paso 1">
-        <h2>URBIPARKING</h2>
-        <img src="urbiparking_propuesta2.png" alt="Paso 2">
+        <div>
+          <img src="propuesta_urbiparking.png" alt="Proceso Urbiparking" style="max-width: 100%; height: auto;">
+        </div>
+        <p>
+          Urbiparking te conecta con personas que alquilan sus espacios libres. Evita el tráfico, reserva desde tu celular y paga en línea.
+        </p>
       </div>
 
       <div class="form-section">
-        <p>Urbiparking te conecta con personas que alquilan sus espacios libres. Evita el tráfico, reserva desde tu celular y paga en línea.</p>
+        <div class="branding">
+          <img src="logo-urbiparking.png" alt="Logo Urbiparking">
+          <h2>URBIPARKING</h2>
+        </div>
         <form action="https://formsubmit.co/bmunozsa@proton.me" method="POST" onsubmit="enviarYMostrarGracias(event)">
           <input type="hidden" name="_captcha" value="false">
           <label for="nombre">Nombre completo*</label>
