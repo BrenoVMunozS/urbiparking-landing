@@ -141,17 +141,20 @@
   <div class="content-wrapper">
     <section class="main-section">
       <div class="hero">
-        <img src="urbiparking_propuesta1.png" alt="Paso 1 - Buscar estacionamiento">
-        <img src="urbiparking_propuesta2.png" alt="Paso 2 - Reserva y pago" style="margin-top: 0.5rem;">
+        <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+          <img src="urbiparking_propuesta1.png" alt="Paso 1 - Buscar estacionamiento" style="max-width: 180px; height: auto;">
+          <img src="urbiparking_propuesta2.png" alt="Paso 2 - Reserva y pago" style="max-width: 180px; height: auto;">
+        </div>
+        <p style="font-size: 0.95rem; color: #444; text-align: center; margin-top: 1rem; max-width: 500px;">
+          Urbiparking te conecta con personas que alquilan sus espacios libres. Evita el tráfico, reserva desde tu celular y paga en línea.
+        </p>
       </div>
+      
       <div class="form-section">
-        <div style="text-align: center; margin-bottom: 1rem;">
-          <img src="logo-urbiparking.png" alt="Logo Urbiparking" style="max-width: 100px; display: block; margin: 0 auto 0.5rem auto;">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+          <img src="logo-urbiparking.png" alt="Logo Urbiparking" style="max-width: 140px; display: block; margin: 0 auto 0.5rem auto;">
           <h2 style="margin: 0; font-size: 1.25rem; color: #333;">URBIPARKING</h2>
         </div>
-        <p style="font-size: 0.95rem; color: #444; text-align: center; margin-top: 0.25rem;">Urbiparking te conecta con personas que alquilan sus espacios libres. Evita el tráfico, reserva desde tu celular y paga en línea.</p>
-      </div>
-      <div class="form-section">
         <form action="https://formsubmit.co/bmunozsa@proton.me" method="POST" onsubmit="enviarYMostrarGracias(event)">
           <input type="hidden" name="_captcha" value="false">
           <label for="nombre">Nombre completo*</label>
@@ -206,3 +209,4 @@
   </script>
 </body>
 </html>
+
