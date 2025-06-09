@@ -14,17 +14,36 @@
     }
 
     header {
-      background-color: #333333;
+      background-color: #256B32;
       padding: 1rem 2rem;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       color: #ffffff;
+    }
+
+    header img {
+      height: 40px;
+      margin-right: 1rem;
     }
 
     header h1 {
       margin: 0;
       font-size: 1.5rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .main-section {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 3rem 1rem;
+    }
+
+    .hero, .form-section {
+      width: 50%;
+      padding: 2rem;
+      box-sizing: border-box;
     }
 
     .hero {
@@ -32,8 +51,6 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 3rem 1rem;
-      background-color: #ffffff;
     }
 
     .hero img {
@@ -44,12 +61,43 @@
     .hero h2 {
       font-size: 2rem;
       color: #333333;
+      font-family: 'Inter', sans-serif;
     }
 
     .hero p {
       font-size: 1.1rem;
-      color: #666666;
+      color: #2F8640;
       max-width: 600px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .form-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-section p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    input {
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
     }
 
     .cta-button {
@@ -58,44 +106,96 @@
       background-color: #333333;
       color: #ffffff;
       border: none;
+      background-color: #2D823C;
       font-size: 1rem;
       cursor: pointer;
       border-radius: 5px;
       transition: background-color 0.3s;
+      font-family: 'Inter', sans-serif;
     }
 
     .cta-button:hover {
-      background-color: #555555;
+      background-color: #3E9F4E;
     }
 
     footer {
-      background-color: #222222;
+      background-color: #154C22;
       color: #ffffff;
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
+      font-family: 'Inter', sans-serif;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>urbiparking</h1>
+    <img src="Diseño sin título.png" alt="Logo Urbiparking">
+    <h1>Urbiparking</h1>
   </header>
 
-  <section class="hero">
-    <img src="1.png" alt="Auto buscando estacionamiento">
-    <h2>
-      ¡Encuentra tu estacionamiento disponible fácilmente!
-    </h2>
-    <p>
-      Urbiparking te conecta con personas que alquilan sus espacios libres. Evita el tráfico, reserva desde tu celular y paga en línea.
-    </p>
-    <button class="cta-button">Descargar App</button>
+  <section class="main-section">
+    <div class="hero">
+      <img src="1.png" alt="Auto buscando estacionamiento">
+      <h2>
+        ¡Encuentra tu estacionamiento disponible fácilmente!
+      </h2>
+      <p>
+        Urbiparking te conecta con personas que alquilan sus espacios libres. Evita el tráfico, reserva desde tu celular y paga en línea.
+      </p>
+    </div>
+    <div class="form-section">
+      <form action="https://formsubmit.co/urbiparkinginnovacion@gmail.com" method="POST" onsubmit="enviarYMostrarGracias(event)">
+        <input type="hidden" name="_captcha" value="false">
+        <label for="nombre">Nombre completo*</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="email">Correo electrónico*</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono">
+
+        <button class="cta-button" type="submit">¡Quiero saber más!</button>
+      </form>
+    </div>
   </section>
 
   <footer>
     &copy; 2025 Urbiparking. Todos los derechos reservados.
   </footer>
+<script>
+  function enviarYMostrarGracias(event) {
+    const form = event.target;
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        const formSection = document.querySelector('.form-section');
+        formSection.innerHTML = `
+          <div style="text-align: center;">
+            <img src="ChatGPT Image Jun 8, 2025, 07_31_25 PM.png" alt="Gracias" style="max-width: 200px; margin-bottom: 1rem;">
+            <h2 style="font-family: 'Inter', sans-serif;">¡Gracias por contactarnos!</h2>
+            <p style="font-family: 'Inter', sans-serif;">Nos pondremos en contacto contigo pronto.</p>
+          </div>
+        `;
+      } else {
+        alert("Ocurrió un error. Por favor, intenta nuevamente.");
+      }
+    }).catch(error => {
+      alert("No se pudo enviar el formulario. Intenta más tarde.");
+    });
+  }
+</script>
 </body>
 </html>
+
 
