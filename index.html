@@ -6,11 +6,18 @@
   <title>Urbiparking - Encuentra tu Estacionamiento</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%;
       font-family: 'Inter', sans-serif;
       background-color: #ffffff;
       color: #222222;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -27,46 +34,61 @@
       font-size: 1.5rem;
     }
 
+    .content-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
     .main-section {
+      flex: 1;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      padding: 3rem 1rem;
+      padding: 1.5rem;
+      overflow: hidden;
     }
 
     .hero {
       width: 50%;
-      padding: 2rem;
+      padding: 1rem;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
+      justify-content: center;
     }
 
     .hero img {
-      max-width: 300px;
-      margin-bottom: 1.5rem;
+      max-width: 240px;
+      height: auto;
+      margin-bottom: 1rem;
     }
 
     .hero h2 {
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: #333333;
+      margin: 0.5rem 0;
     }
 
     .hero p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #444444;
-      max-width: 600px;
+      max-width: 500px;
+      margin: 0;
     }
 
     .form-section {
       width: 45%;
-      padding: 2rem;
+      padding: 1rem;
       box-sizing: border-box;
       background-color: #f9f9f9;
       border-radius: 8px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      box-shadow: 0 6px 30px rgba(0,0,0,0.25);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     form {
@@ -75,20 +97,20 @@
     }
 
     label {
-      margin-top: 1rem;
+      margin-top: 0.75rem;
       font-weight: 600;
     }
 
     input {
       padding: 0.5rem;
-      margin-top: 0.5rem;
+      margin-top: 0.25rem;
       border: 1px solid #ccc;
       border-radius: 4px;
     }
 
     .cta-button {
-      margin-top: 2rem;
-      padding: 1rem 2rem;
+      margin-top: 1.5rem;
+      padding: 0.75rem;
       background-color: #2D823C;
       color: #ffffff;
       border: none;
@@ -106,8 +128,8 @@
       background-color: #1B4F26;
       color: #ffffff;
       text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+      padding: 0.75rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -116,68 +138,67 @@
     <h1>Urbiparking</h1>
   </header>
 
-  <section class="main-section">
-    <div class="hero">
-      <img src="urbiparking_propuesta1.png" alt="Auto buscando estacionamiento">
-      <h2>
-        ¡Encuentra tu estacionamiento disponible fácilmente!
-      </h2>
-      <p>
-        Urbiparking te conecta con personas que alquilan sus espacios libres. Evita el tráfico, reserva desde tu celular y paga en línea.
-      </p>
-    </div>
-    <div class="form-section">
-      <form action="https://formsubmit.co/bmunozsa@proton.me" method="POST" onsubmit="enviarYMostrarGracias(event)">
-        <input type="hidden" name="_captcha" value="false">
-        <label for="nombre">Nombre completo*</label>
-        <input type="text" id="nombre" name="nombre" required>
+  <div class="content-wrapper">
+    <section class="main-section">
+      <div class="hero">
+        <img src="urbiparking_propuesta1.png" alt="Paso 1 - Buscar estacionamiento">
+        <img src="urbiparking_propuesta2.png" alt="Paso 2 - Reserva y pago" style="margin-top: 0.5rem;">
+        <h2>¡Encuentra tu estacionamiento disponible fácilmente!</h2>
+        <p>Urbiparking te conecta con personas que alquilan sus espacios libres. Evita el tráfico, reserva desde tu celular y paga en línea.</p>
+      </div>
+      <div class="form-section">
+        <form action="https://formsubmit.co/bmunozsa@proton.me" method="POST" onsubmit="enviarYMostrarGracias(event)">
+          <input type="hidden" name="_captcha" value="false">
+          <label for="nombre">Nombre completo*</label>
+          <input type="text" id="nombre" name="nombre" required>
 
-        <label for="email">Correo electrónico*</label>
-        <input type="email" id="email" name="email" required>
+          <label for="email">Correo electrónico*</label>
+          <input type="email" id="email" name="email" required>
 
-        <label for="telefono">Teléfono</label>
-        <input type="tel" id="telefono" name="telefono">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono">
 
-        <button class="cta-button" type="submit">¡Quiero saber más!</button>
-      </form>
-    </div>
-  </section>
+          <button class="cta-button" type="submit">¡Quiero saber más!</button>
+        </form>
+      </div>
+    </section>
+  </div>
 
   <footer>
     &copy; 2025 Urbiparking. Todos los derechos reservados.
   </footer>
 
-<script>
-  function enviarYMostrarGracias(event) {
-    const form = event.target;
-    event.preventDefault();
+  <script>
+    function enviarYMostrarGracias(event) {
+      const form = event.target;
+      event.preventDefault();
 
-    const formData = new FormData(form);
+      const formData = new FormData(form);
 
-    fetch(form.action, {
-      method: "POST",
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
-    }).then(response => {
-      if (response.ok) {
-        const formSection = document.querySelector('.form-section');
-        formSection.innerHTML = `
-          <div style="text-align: center; padding-top: 1rem;">
-            <img src="gracias1.png" alt="Gracias" style="max-width: 250px; margin-bottom: 1rem;">
-            <h2 style="font-family: 'Inter', sans-serif;">¡Gracias por contactarnos!</h2>
-            <p style="font-family: 'Inter', sans-serif;">Nos pondremos en contacto contigo pronto.</p>
-          </div>
-        `;
-      } else {
-        alert("Ocurrió un error. Por favor, intenta nuevamente.");
-      }
-    }).catch(error => {
-      alert("No se pudo enviar el formulario. Intenta más tarde.");
-    });
-  }
-</script>
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          const formSection = document.querySelector('.form-section');
+          formSection.innerHTML = `
+            <div style="text-align: center; padding-top: 1rem;">
+              <img src="gracias1.png" alt="Gracias" style="max-width: 250px; margin-bottom: 1rem;">
+              <h2 style="font-family: 'Inter', sans-serif;">¡Gracias por contactarnos!</h2>
+              <p style="font-family: 'Inter', sans-serif;">Nos pondremos en contacto contigo pronto.</p>
+            </div>
+          `;
+        } else {
+          alert("Ocurrió un error. Por favor, intenta nuevamente.");
+        }
+      }).catch(error => {
+        alert("No se pudo enviar el formulario. Intenta más tarde.");
+      });
+    }
+  </script>
 </body>
 </html>
 
